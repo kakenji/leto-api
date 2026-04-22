@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppDataSource } from './database/config/data-source';
 import { ConfigModule } from '@nestjs/config';
+import { UserExampleController } from './app/user-example/user-example.controller';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import { ConfigModule } from '@nestjs/config';
       envFilePath: '.env'
     })
   ],
-  controllers: [AppController],
+  controllers: [AppController, UserExampleController],
   providers: [AppService],
 })
 export class AppModule {}
