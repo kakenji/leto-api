@@ -1,15 +1,15 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { UserExample } from "src/database/config/entities/user.example.entity";
 import { UserExampleController } from "./user-example.controller";
 import { UserExampleService } from "./user-example.service";
 import { UserExampleRepository } from "src/repositories/user-example.repository";
+import { UserExample } from "src/database/entities/user-example.entity";
 
 @Module({
 
   imports: [
     TypeOrmModule.forFeature([UserExample],
-        process.env.DB_DATABASE,
+        process.env.DB_NAME,
     ),
     ],
   controllers: [UserExampleController],
@@ -22,6 +22,10 @@ import { UserExampleRepository } from "src/repositories/user-example.repository"
         provide: 'userExampleRepository',
         useClass: UserExampleRepository
     }
+  ],
+  exports: [
+    'userExampleService',
+    'userExampleRepository'
   ],
 })
 export class UserExampleModule {}

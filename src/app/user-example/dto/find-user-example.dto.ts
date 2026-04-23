@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsDate, IsNumber, IsOptional, IsString } from "class-validator";
+import { IsDate, IsNumber, IsOptional, IsString, Matches } from "class-validator";
 
 export class FindUserExampleDto{
     @IsNumber()
@@ -11,7 +11,7 @@ export class FindUserExampleDto{
     @IsOptional()
     name: string
 
-    @IsDate()
+    @IsString()
     @IsOptional()
-    birthday: Date
+    cpf: string;
 }  

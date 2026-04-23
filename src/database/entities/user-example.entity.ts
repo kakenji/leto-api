@@ -1,15 +1,15 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-@Entity({ name: 'user-example', database: process.env.DB_DATABASE })
+@Entity({ name: 'user_example', database: process.env.DB_DATABASE })
 export class UserExample{
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
-    name: string;
-
+    cpf: string
+    
     @Column()
-    birthday: Date
+    name: string;
 
     @CreateDateColumn({ name: 'created_at'})
     createdAt: Date
